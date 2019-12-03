@@ -10,4 +10,4 @@ Input File: It got rtl_sdr command, 8bit . Maybe it compatible SDR# record, Reco
 ![sdr_sharp_record_8bitPCM](./sdr_sharp_record_8bitPCM.jpg "sdr_sharp_record_8bitPCM")
 
 ## File Sink Block
-Output File: It can use on GQRX, GNU Radio. File size is 4 times from input file.
+Output File: It can use on GQRX, GNU Radio. File size is 4 times from input file. (8bit byte complex -> 32bit float complex)
