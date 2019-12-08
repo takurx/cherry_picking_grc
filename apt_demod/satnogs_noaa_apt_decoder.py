@@ -37,7 +37,7 @@ from gnuradio import qtgui
 
 class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
 
-    def __init__(self, antenna=satnogs.not_set_antenna, bb_gain=satnogs.not_set_rx_bb_gain, decoded_data_file_path='/home/mocha/.satnogs/data/noaa', dev_args=satnogs.not_set_dev_args, doppler_correction_per_sec=20, enable_iq_dump=0, file_path='/tmp/test.ogg', flip_images=0, if_gain=satnogs.not_set_rx_if_gain, iq_file_path='/tmp/iq.dat', lo_offset=100e3, ppm=0, rf_gain=satnogs.not_set_rx_rf_gain, rigctl_port=4532, rx_freq=137.812e6, rx_sdr_device='rtlsdr', sync=1, waterfall_file_path='/tmp/waterfall.dat'):
+    def __init__(self, antenna=satnogs.not_set_antenna, bb_gain=satnogs.not_set_rx_bb_gain, decoded_data_file_path='/home/mocha/.satnogs/data/noaa', dev_args=satnogs.not_set_dev_args, doppler_correction_per_sec=20, enable_iq_dump=0, file_path='/home/mocha/Desktop/test-1.ogg', flip_images=0, if_gain=satnogs.not_set_rx_if_gain, iq_file_path='/tmp/iq.dat', lo_offset=100e3, ppm=0, rf_gain=satnogs.not_set_rx_rf_gain, rigctl_port=4532, rx_freq=137.812e6, rx_sdr_device='rtlsdr', sync=0, waterfall_file_path='/tmp/waterfall.dat'):
         gr.top_block.__init__(self, "NOAA APT Decoder")
         Qt.QWidget.__init__(self)
         self.setWindowTitle("NOAA APT Decoder")
@@ -102,15 +102,28 @@ class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
         # Blocks
         ##################################################
         self.satnogs_ogg_encoder_0 = satnogs.ogg_encoder(file_path, 48000, 0.8)
-        self.rational_resampler_xxx_2_0 = filter.rational_resampler_ccc(
-                interpolation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth))),
-                decimation=int(samp_rate_rx /first_stage_decimation),
+        self.satnogs_noaa_apt_sink_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/test.png', 2080, 1800, bool(sync), bool(flip_images))
+        self.rational_resampler_3 = filter.rational_resampler_fff(
+                interpolation=1,
+                decimation=4,
                 taps=None,
                 fractional_bw=None,
         )
-        self.rational_resampler_xxx_1 = filter.rational_resampler_fff(
+        self.rational_resampler_2 = filter.rational_resampler_fff(
+                interpolation=4*4160,
+                decimation=int((samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation)/2),
+                taps=None,
+                fractional_bw=None,
+        )
+        self.rational_resampler_1 = filter.rational_resampler_fff(
                 interpolation=48000,
                 decimation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation),
+                taps=None,
+                fractional_bw=None,
+        )
+        self.rational_resampler_0 = filter.rational_resampler_ccc(
+                interpolation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth))),
+                decimation=int(samp_rate_rx /first_stage_decimation),
                 taps=None,
                 fractional_bw=None,
         )
@@ -150,6 +163,10 @@ class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
 
         self._qtgui_waterfall_sink_x_0_win = sip.wrapinstance(self.qtgui_waterfall_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_grid_layout.addWidget(self._qtgui_waterfall_sink_x_0_win)
+        self.hilbert_fc_0 = filter.hilbert_fc(65, firdes.WIN_HAMMING, 6.76)
+        self.freq_xlating_fir_filter_xxx_0 = filter.freq_xlating_fir_filter_ccc(first_stage_decimation, (first_stage_filter_taps), lo_offset, samp_rate_rx)
+        self.fir_filter_xxx_1 = filter.fir_filter_fff(2, ([0.5, 0.5]))
+        self.fir_filter_xxx_1.declare_sample_delay(0)
         self.fft_filter_xxx_0 = filter.fft_filter_ccc(int(samp_rate_rx/ first_stage_decimation / initial_bandwidth), (noaa_filter_taps), 1)
         self.fft_filter_xxx_0.declare_sample_delay(0)
         self.blocks_uchar_to_float_1 = blocks.uchar_to_float()
@@ -161,8 +178,11 @@ class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
         self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, '/home/mocha/Desktop/1912_December/iq_NOAA_18_20191016T101359_137812000Hz_IQ.wav', False)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.blocks_deinterleave_0 = blocks.deinterleave(gr.sizeof_char*1, 1)
+        self.blocks_complex_to_mag_0 = blocks.complex_to_mag(1)
         self.blocks_add_const_vxx_1 = blocks.add_const_vff((-127, ))
         self.blocks_add_const_vxx_0 = blocks.add_const_vff((127, ))
+        self.band_pass_filter_0 = filter.fir_filter_fff(1, firdes.band_pass(
+        	6, samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
         self.analog_wfm_rcv_0 = analog.wfm_rcv(
         	quad_rate=samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)),
         	audio_decimation=audio_decimation,
@@ -173,22 +193,30 @@ class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.analog_wfm_rcv_0, 0), (self.rational_resampler_xxx_1, 0))
+        self.connect((self.analog_wfm_rcv_0, 0), (self.band_pass_filter_0, 0))
+        self.connect((self.analog_wfm_rcv_0, 0), (self.rational_resampler_1, 0))
+        self.connect((self.band_pass_filter_0, 0), (self.fir_filter_xxx_1, 0))
         self.connect((self.blocks_add_const_vxx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_add_const_vxx_1, 0), (self.blocks_multiply_const_vxx_1, 0))
+        self.connect((self.blocks_complex_to_mag_0, 0), (self.rational_resampler_3, 0))
         self.connect((self.blocks_deinterleave_0, 0), (self.blocks_uchar_to_float_0, 0))
         self.connect((self.blocks_deinterleave_0, 1), (self.blocks_uchar_to_float_1, 0))
         self.connect((self.blocks_file_source_0, 0), (self.blocks_deinterleave_0, 0))
         self.connect((self.blocks_float_to_complex_0, 0), (self.blocks_throttle_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.blocks_float_to_complex_0, 0))
         self.connect((self.blocks_multiply_const_vxx_1, 0), (self.blocks_float_to_complex_0, 1))
-        self.connect((self.blocks_throttle_0, 0), (self.fft_filter_xxx_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.rational_resampler_xxx_2_0, 0))
+        self.connect((self.blocks_throttle_0, 0), (self.freq_xlating_fir_filter_xxx_0, 0))
         self.connect((self.blocks_uchar_to_float_0, 0), (self.blocks_add_const_vxx_0, 0))
         self.connect((self.blocks_uchar_to_float_1, 0), (self.blocks_add_const_vxx_1, 0))
         self.connect((self.fft_filter_xxx_0, 0), (self.analog_wfm_rcv_0, 0))
-        self.connect((self.rational_resampler_xxx_1, 0), (self.satnogs_ogg_encoder_0, 0))
-        self.connect((self.rational_resampler_xxx_2_0, 0), (self.qtgui_waterfall_sink_x_0, 0))
+        self.connect((self.fir_filter_xxx_1, 0), (self.rational_resampler_2, 0))
+        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.fft_filter_xxx_0, 0))
+        self.connect((self.freq_xlating_fir_filter_xxx_0, 0), (self.rational_resampler_0, 0))
+        self.connect((self.hilbert_fc_0, 0), (self.blocks_complex_to_mag_0, 0))
+        self.connect((self.rational_resampler_0, 0), (self.qtgui_waterfall_sink_x_0, 0))
+        self.connect((self.rational_resampler_1, 0), (self.satnogs_ogg_encoder_0, 0))
+        self.connect((self.rational_resampler_2, 0), (self.hilbert_fc_0, 0))
+        self.connect((self.rational_resampler_3, 0), (self.satnogs_noaa_apt_sink_0, 0))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "satnogs_noaa_apt_decoder")
@@ -260,6 +288,7 @@ class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
 
     def set_lo_offset(self, lo_offset):
         self.lo_offset = lo_offset
+        self.freq_xlating_fir_filter_xxx_0.set_center_freq(self.lo_offset)
 
     def get_ppm(self):
         return self.ppm
@@ -312,12 +341,14 @@ class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
         self.samp_rate_rx = samp_rate_rx
         self.qtgui_waterfall_sink_x_0.set_frequency_range(self.rx_freq, self.samp_rate_rx)
         self.blocks_throttle_0.set_sample_rate(self.samp_rate_rx)
+        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
     def get_first_stage_decimation(self):
         return self.first_stage_decimation
 
     def set_first_stage_decimation(self, first_stage_decimation):
         self.first_stage_decimation = first_stage_decimation
+        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
     def get_noaa_filter_taps(self):
         return self.noaa_filter_taps
@@ -331,18 +362,21 @@ class satnogs_noaa_apt_decoder(gr.top_block, Qt.QWidget):
 
     def set_initial_bandwidth(self, initial_bandwidth):
         self.initial_bandwidth = initial_bandwidth
+        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
     def get_first_stage_filter_taps(self):
         return self.first_stage_filter_taps
 
     def set_first_stage_filter_taps(self, first_stage_filter_taps):
         self.first_stage_filter_taps = first_stage_filter_taps
+        self.freq_xlating_fir_filter_xxx_0.set_taps((self.first_stage_filter_taps))
 
     def get_audio_decimation(self):
         return self.audio_decimation
 
     def set_audio_decimation(self, audio_decimation):
         self.audio_decimation = audio_decimation
+        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
 
 def argument_parser():
@@ -367,7 +401,7 @@ def argument_parser():
         "", "--enable-iq-dump", dest="enable_iq_dump", type="intx", default=0,
         help="Set enable_iq_dump [default=%default]")
     parser.add_option(
-        "", "--file-path", dest="file_path", type="string", default='/tmp/test.ogg',
+        "", "--file-path", dest="file_path", type="string", default='/home/mocha/Desktop/test-1.ogg',
         help="Set file_path [default=%default]")
     parser.add_option(
         "", "--flip-images", dest="flip_images", type="intx", default=0,
@@ -397,7 +431,7 @@ def argument_parser():
         "", "--rx-sdr-device", dest="rx_sdr_device", type="string", default='rtlsdr',
         help="Set rx_sdr_device [default=%default]")
     parser.add_option(
-        "", "--sync", dest="sync", type="intx", default=1,
+        "", "--sync", dest="sync", type="intx", default=0,
         help="Set sync [default=%default]")
     parser.add_option(
         "", "--waterfall-file-path", dest="waterfall_file_path", type="string", default='/tmp/waterfall.dat',

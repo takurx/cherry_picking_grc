@@ -321,7 +321,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(696, 396)</value>
+      <value>(832, 396)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -415,7 +415,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>type</key>
@@ -423,7 +423,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(904, 348)</value>
+      <value>(1040, 348)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -541,7 +541,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(832, 20)</value>
+      <value>(1184, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -592,7 +592,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(832, 84)</value>
+      <value>(1184, 76)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -635,11 +635,11 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(912, 552)</value>
+      <value>(1048, 552)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -686,7 +686,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(496, 40)</value>
+      <value>(848, 32)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -745,7 +745,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(248, 60)</value>
+      <value>(600, 52)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -796,7 +796,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1136, 56)</value>
+      <value>(1488, 48)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -843,7 +843,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(960, 20)</value>
+      <value>(1312, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -894,7 +894,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(960, 84)</value>
+      <value>(1312, 76)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -941,7 +941,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(296, 212)</value>
+      <value>(384, 180)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -996,7 +996,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(664, 32)</value>
+      <value>(1016, 24)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1035,7 +1035,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(664, 88)</value>
+      <value>(1016, 80)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1052,6 +1052,53 @@ TX sampling rate</value>
     <param>
       <key>minoutbuf</key>
       <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_wavfile_sink</key>
+    <param>
+      <key>bits_per_sample</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>file</key>
+      <value>/home/mocha/Desktop/test_teminater.bin</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(896, 640)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_wavfile_sink_0</value>
+    </param>
+    <param>
+      <key>nchan</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>int(samp_rate_rx)</value>
     </param>
   </block>
   <block>
@@ -1266,7 +1313,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(496, 396)</value>
+      <value>(632, 396)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1317,7 +1364,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1096, 180)</value>
+      <value>(1232, 164)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1345,7 +1392,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>value</key>
-      <value>/tmp/test.ogg</value>
+      <value>/home/mocha/Desktop/test-1.ogg</value>
     </param>
   </block>
   <block>
@@ -1368,11 +1415,11 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1096, 396)</value>
+      <value>(1232, 396)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1474,11 +1521,11 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(248, 556)</value>
+      <value>(336, 252)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1529,11 +1576,11 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1072, 548)</value>
+      <value>(1208, 548)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3184,7 +3231,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>fftsize</key>
@@ -3192,7 +3239,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(712, 188)</value>
+      <value>(808, 220)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -3395,11 +3442,11 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>decim</key>
-      <value>int((samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation)/2)</value>
+      <value>int(samp_rate_rx /first_stage_decimation)</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>fbw</key>
@@ -3407,7 +3454,125 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1216, 524)</value>
+      <value>(608, 220)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rational_resampler_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)))</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>taps</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>ccc</value>
+    </param>
+  </block>
+  <block>
+    <key>rational_resampler_xxx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation)</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>fbw</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1048, 252)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rational_resampler_1</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>48000</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>taps</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>fff</value>
+    </param>
+  </block>
+  <block>
+    <key>rational_resampler_xxx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>int((samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation)/2)</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>fbw</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1352, 524)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3415,7 +3580,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>id</key>
-      <value>rational_resampler_xxx_0</value>
+      <value>rational_resampler_2</value>
     </param>
     <param>
       <key>interp</key>
@@ -3458,7 +3623,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>fbw</key>
@@ -3466,7 +3631,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(728, 524)</value>
+      <value>(864, 524)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3474,70 +3639,11 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>id</key>
-      <value>rational_resampler_xxx_0_0</value>
+      <value>rational_resampler_3</value>
     </param>
     <param>
       <key>interp</key>
       <value>1</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>taps</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>fff</value>
-    </param>
-  </block>
-  <block>
-    <key>rational_resampler_xxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>decim</key>
-      <value>int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation)</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>fbw</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(912, 252)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>rational_resampler_xxx_1</value>
-    </param>
-    <param>
-      <key>interp</key>
-      <value>48000</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -3584,7 +3690,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1416, 500)</value>
+      <value>(1552, 500)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3597,65 +3703,6 @@ we shift the LO a little further</value>
     <param>
       <key>interp</key>
       <value>48000</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>taps</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>ccc</value>
-    </param>
-  </block>
-  <block>
-    <key>rational_resampler_xxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>decim</key>
-      <value>int(samp_rate_rx /first_stage_decimation)</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>fbw</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(504, 276)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>rational_resampler_xxx_2_0</value>
-    </param>
-    <param>
-      <key>interp</key>
-      <value>int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)))</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -3882,7 +3929,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(56, 248)</value>
+      <value>(296, 352)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3937,7 +3984,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1600, 508)</value>
+      <value>(1736, 508)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3972,7 +4019,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>flip</key>
@@ -3980,7 +4027,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(504, 516)</value>
+      <value>(600, 548)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -4031,7 +4078,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1096, 260)</value>
+      <value>(1232, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -4141,7 +4188,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1304, 220)</value>
+      <value>(1440, 220)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -4208,7 +4255,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>value</key>
-      <value>1</value>
+      <value>0</value>
     </param>
   </block>
   <block>
@@ -4227,7 +4274,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1400, 372)</value>
+      <value>(1536, 372)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -4266,7 +4313,7 @@ we shift the LO a little further</value>
   </connection>
   <connection>
     <source_block_id>analog_wfm_rcv_0</source_block_id>
-    <sink_block_id>rational_resampler_xxx_1</sink_block_id>
+    <sink_block_id>rational_resampler_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -4290,7 +4337,7 @@ we shift the LO a little further</value>
   </connection>
   <connection>
     <source_block_id>blocks_complex_to_mag_0</source_block_id>
-    <sink_block_id>rational_resampler_xxx_0_0</sink_block_id>
+    <sink_block_id>rational_resampler_3</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -4332,13 +4379,7 @@ we shift the LO a little further</value>
   </connection>
   <connection>
     <source_block_id>blocks_throttle_0</source_block_id>
-    <sink_block_id>fft_filter_xxx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_throttle_0</source_block_id>
-    <sink_block_id>rational_resampler_xxx_2_0</sink_block_id>
+    <sink_block_id>freq_xlating_fir_filter_xxx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -4362,13 +4403,19 @@ we shift the LO a little further</value>
   </connection>
   <connection>
     <source_block_id>fir_filter_xxx_1</source_block_id>
-    <sink_block_id>rational_resampler_xxx_0</sink_block_id>
+    <sink_block_id>rational_resampler_2</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>freq_xlating_fir_filter_xxx_0</source_block_id>
-    <sink_block_id>satnogs_coarse_doppler_correction_cc_0</sink_block_id>
+    <sink_block_id>fft_filter_xxx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>freq_xlating_fir_filter_xxx_0</source_block_id>
+    <sink_block_id>rational_resampler_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -4379,38 +4426,38 @@ we shift the LO a little further</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>osmosdr_source_0</source_block_id>
-    <sink_block_id>freq_xlating_fir_filter_xxx_0</sink_block_id>
+    <source_block_id>rational_resampler_0</source_block_id>
+    <sink_block_id>qtgui_waterfall_sink_x_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>rational_resampler_xxx_0</source_block_id>
+    <source_block_id>rational_resampler_1</source_block_id>
+    <sink_block_id>satnogs_ogg_encoder_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>rational_resampler_2</source_block_id>
     <sink_block_id>hilbert_fc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>rational_resampler_xxx_0_0</source_block_id>
-    <sink_block_id>satnogs_noaa_apt_sink_0</sink_block_id>
+    <source_block_id>rational_resampler_3</source_block_id>
+    <sink_block_id>blocks_wavfile_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>rational_resampler_xxx_1</source_block_id>
-    <sink_block_id>satnogs_ogg_encoder_0</sink_block_id>
+    <source_block_id>rational_resampler_3</source_block_id>
+    <sink_block_id>satnogs_noaa_apt_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>rational_resampler_xxx_2</source_block_id>
     <sink_block_id>satnogs_iq_sink_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>rational_resampler_xxx_2_0</source_block_id>
-    <sink_block_id>qtgui_waterfall_sink_x_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
