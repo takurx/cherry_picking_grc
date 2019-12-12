@@ -519,7 +519,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>type</key>
@@ -527,7 +527,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(872, 452)</value>
+      <value>(320, 436)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -544,6 +544,85 @@ TX sampling rate</value>
     <param>
       <key>id</key>
       <value>band_pass_filter_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>low_cutoff_freq</key>
+      <value>500</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation</value>
+    </param>
+    <param>
+      <key>width</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>win</key>
+      <value>firdes.WIN_HAMMING</value>
+    </param>
+  </block>
+  <block>
+    <key>band_pass_filter</key>
+    <param>
+      <key>beta</key>
+      <value>6.76</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>fir_filter_fff</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(888, 452)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>gain</key>
+      <value>6</value>
+    </param>
+    <param>
+      <key>high_cutoff_freq</key>
+      <value>4.2e3</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>band_pass_filter_0_0</value>
     </param>
     <param>
       <key>interp</key>
@@ -649,7 +728,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1000, 284)</value>
+      <value>(1120, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1421,7 +1500,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(360, 364)</value>
+      <value>(360, 276)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3793,7 +3872,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(744, 612)</value>
+      <value>(736, 628)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3852,7 +3931,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(624, 356)</value>
+      <value>(672, 396)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3899,65 +3978,6 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>decim</key>
-      <value>2</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>fbw</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(920, 156)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>rational_resampler_xxx_1</value>
-    </param>
-    <param>
-      <key>interp</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>taps</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>ccc</value>
-    </param>
-  </block>
-  <block>
-    <key>rational_resampler_xxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>decim</key>
       <value>48000</value>
     </param>
     <param>
@@ -3970,7 +3990,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(648, 492)</value>
+      <value>(664, 500)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -5616,7 +5636,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(352, 276)</value>
+      <value>(328, 176)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -5726,7 +5746,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>filename_png</key>
-      <value>/home/mocha/Desktop/test.png</value>
+      <value>/tmp/.satnogs/data/test-1.png</value>
     </param>
     <param>
       <key>height</key>
@@ -5757,7 +5777,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>filename</key>
@@ -5765,7 +5785,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(360, 452)</value>
+      <value>(464, 356)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -5999,7 +6019,7 @@ we shift the LO a little further</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>band_pass_filter_0</source_block_id>
+    <source_block_id>band_pass_filter_0_0</source_block_id>
     <sink_block_id>fir_filter_xxx_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
@@ -6138,7 +6158,7 @@ we shift the LO a little further</value>
   </connection>
   <connection>
     <source_block_id>rational_resampler_xxx_1_0</source_block_id>
-    <sink_block_id>band_pass_filter_0</sink_block_id>
+    <sink_block_id>band_pass_filter_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>

@@ -925,7 +925,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>flip</key>

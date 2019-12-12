@@ -105,8 +105,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
         ##################################################
         # Blocks
         ##################################################
-        self.satnogs_ogg_encoder_0 = satnogs.ogg_encoder(file_path, audio_samp_rate, 1.0)
-        self.satnogs_noaa_apt_sink_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/test.png', 2080, 1800, bool(sync), bool(flip_images))
+        self.satnogs_noaa_apt_sink_0 = satnogs.noaa_apt_sink('/tmp/.satnogs/data/test-1.png', 2080, 1800, bool(sync), bool(flip_images))
         self.rational_resampler_xxx_1_0 = filter.rational_resampler_fff(
                 interpolation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation),
                 decimation=48000,
@@ -189,7 +188,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
                 taps=None,
                 fractional_bw=None,
         )
-        self.band_pass_filter_0 = filter.fir_filter_fff(1, firdes.band_pass(
+        self.band_pass_filter_0_0 = filter.fir_filter_fff(1, firdes.band_pass(
         	6, samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
         self.analog_quadrature_demod_cf_0 = analog.quadrature_demod_cf((2*math.pi*deviation)/96000)
 
@@ -199,7 +198,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
         # Connections
         ##################################################
         self.connect((self.analog_quadrature_demod_cf_0, 0), (self.rational_resampler_xxx_0, 0))
-        self.connect((self.band_pass_filter_0, 0), (self.fir_filter_xxx_1, 0))
+        self.connect((self.band_pass_filter_0_0, 0), (self.fir_filter_xxx_1, 0))
         self.connect((self.blks2_rational_resampler_xxx_1, 0), (self.analog_quadrature_demod_cf_0, 0))
         self.connect((self.blocks_add_const_vxx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_add_const_vxx_1, 0), (self.blocks_multiply_const_vxx_1, 0))
@@ -220,8 +219,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
         self.connect((self.rational_resampler_3, 0), (self.qtgui_waterfall_sink_x_0_0, 0))
         self.connect((self.rational_resampler_3, 0), (self.satnogs_noaa_apt_sink_0, 0))
         self.connect((self.rational_resampler_xxx_0, 0), (self.rational_resampler_xxx_1_0, 0))
-        self.connect((self.rational_resampler_xxx_0, 0), (self.satnogs_ogg_encoder_0, 0))
-        self.connect((self.rational_resampler_xxx_1_0, 0), (self.band_pass_filter_0, 0))
+        self.connect((self.rational_resampler_xxx_1_0, 0), (self.band_pass_filter_0_0, 0))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "satnogs_apt_demod")
@@ -339,7 +337,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
         self.samp_rate_rx = samp_rate_rx
         self.set_xlate_filter_taps(firdes.low_pass(1, self.samp_rate_rx, 125000, 25000, firdes.WIN_HAMMING, 6.76))
         self.blocks_throttle_0.set_sample_rate(self.samp_rate_rx)
-        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
+        self.band_pass_filter_0_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
     def get_xlate_filter_taps(self):
         return self.xlate_filter_taps
@@ -359,7 +357,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
 
     def set_initial_bandwidth(self, initial_bandwidth):
         self.initial_bandwidth = initial_bandwidth
-        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
+        self.band_pass_filter_0_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
     def get_first_stage_filter_taps(self):
         return self.first_stage_filter_taps
@@ -372,7 +370,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
 
     def set_first_stage_decimation(self, first_stage_decimation):
         self.first_stage_decimation = first_stage_decimation
-        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
+        self.band_pass_filter_0_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
     def get_filter_rate(self):
         return self.filter_rate
@@ -398,7 +396,7 @@ class satnogs_apt_demod(gr.top_block, Qt.QWidget):
 
     def set_audio_decimation(self, audio_decimation):
         self.audio_decimation = audio_decimation
-        self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
+        self.band_pass_filter_0_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
 
 def argument_parser():
