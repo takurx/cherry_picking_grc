@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 ##################################################
 # GNU Radio Python Flow Graph
-# Title: Top Block
+# Title: Decode Noaa Apt From Wav 48K
 # Description: Ref. https://community.libre.space/t/noaa-apt-slanting-issues/2264
 # GNU Radio version: 3.7.13.5
 ##################################################
@@ -17,10 +17,10 @@ from optparse import OptionParser
 import satnogs
 
 
-class top_block(gr.top_block):
+class decode_noaa_apt_from_wav_48k(gr.top_block):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Top Block")
+        gr.top_block.__init__(self, "Decode Noaa Apt From Wav 48K")
 
         ##################################################
         # Variables
@@ -34,8 +34,7 @@ class top_block(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.satnogs_ogg_source_0 = satnogs.ogg_source('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56.ogg', 1, False)
-        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png', 2080, 1800, True, True)
+        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png', 2080, 1800, True, False)
         self.rational_resampler_xxx_1 = filter.rational_resampler_fff(
                 interpolation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation),
                 decimation=48000,
@@ -57,6 +56,7 @@ class top_block(gr.top_block):
         self.hilbert_fc_0 = filter.hilbert_fc(65, firdes.WIN_HAMMING, 6.76)
         self.fir_filter_xxx_1 = filter.fir_filter_fff(2, ([0.5, 0.5]))
         self.fir_filter_xxx_1.declare_sample_delay(0)
+        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/sebastian/projects/satnogs/testbed/satnogs_164929_2018-06-20T14-47-18.wav', False)
         self.blocks_complex_to_mag_0 = blocks.complex_to_mag(1)
         self.band_pass_filter_0 = filter.fir_filter_fff(1, firdes.band_pass(
         	6, samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
@@ -68,12 +68,12 @@ class top_block(gr.top_block):
         ##################################################
         self.connect((self.band_pass_filter_0, 0), (self.fir_filter_xxx_1, 0))
         self.connect((self.blocks_complex_to_mag_0, 0), (self.rational_resampler_xxx_0_0, 0))
+        self.connect((self.blocks_wavfile_source_0, 0), (self.rational_resampler_xxx_1, 0))
         self.connect((self.fir_filter_xxx_1, 0), (self.rational_resampler_xxx_0, 0))
         self.connect((self.hilbert_fc_0, 0), (self.blocks_complex_to_mag_0, 0))
         self.connect((self.rational_resampler_xxx_0, 0), (self.hilbert_fc_0, 0))
         self.connect((self.rational_resampler_xxx_0_0, 0), (self.satnogs_noaa_apt_sink_0_0, 0))
         self.connect((self.rational_resampler_xxx_1, 0), (self.band_pass_filter_0, 0))
-        self.connect((self.satnogs_ogg_source_0, 0), (self.rational_resampler_xxx_1, 0))
 
     def get_samp_rate_rx(self):
         return self.samp_rate_rx
@@ -110,7 +110,7 @@ class top_block(gr.top_block):
         self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
 
-def main(top_block_cls=top_block, options=None):
+def main(top_block_cls=decode_noaa_apt_from_wav_48k, options=None):
 
     tb = top_block_cls()
     tb.start()

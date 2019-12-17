@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 ##################################################
 # GNU Radio Python Flow Graph
-# Title: Top Block
+# Title: Decode Noaa Apt From Ogg 48K
 # Description: Ref. https://community.libre.space/t/noaa-apt-slanting-issues/2264
 # GNU Radio version: 3.7.13.5
 ##################################################
@@ -17,10 +17,10 @@ from optparse import OptionParser
 import satnogs
 
 
-class top_block(gr.top_block):
+class decode_noaa_apt_from_ogg_48k(gr.top_block):
 
     def __init__(self):
-        gr.top_block.__init__(self, "Top Block")
+        gr.top_block.__init__(self, "Decode Noaa Apt From Ogg 48K")
 
         ##################################################
         # Variables
@@ -35,7 +35,7 @@ class top_block(gr.top_block):
         # Blocks
         ##################################################
         self.satnogs_ogg_source_0 = satnogs.ogg_source('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56.ogg', 1, False)
-        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png', 2080, 1800, True, True)
+        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png', 2080, 1800, True, False)
         self.rational_resampler_xxx_1 = filter.rational_resampler_fff(
                 interpolation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation),
                 decimation=48000,
@@ -110,7 +110,7 @@ class top_block(gr.top_block):
         self.band_pass_filter_0.set_taps(firdes.band_pass(6, self.samp_rate_rx/ ( self.first_stage_decimation  * int(self.samp_rate_rx/ self.first_stage_decimation / self.initial_bandwidth)) / self.audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))
 
 
-def main(top_block_cls=top_block, options=None):
+def main(top_block_cls=decode_noaa_apt_from_ogg_48k, options=None):
 
     tb = top_block_cls()
     tb.start()

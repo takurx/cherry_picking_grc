@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>decode_noaa_apt_from_ogg_48k</value>
+      <value>decode_noaa_apt_from_wav_48k</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -368,7 +368,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>file</key>
@@ -980,7 +980,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>filename</key>
@@ -1020,6 +1020,12 @@ TX sampling rate</value>
   <connection>
     <source_block_id>blocks_complex_to_mag_0</source_block_id>
     <sink_block_id>rational_resampler_xxx_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_wavfile_source_0</source_block_id>
+    <sink_block_id>rational_resampler_xxx_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>

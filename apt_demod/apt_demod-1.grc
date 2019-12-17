@@ -38,7 +38,7 @@
     </param>
     <param>
       <key>generate_options</key>
-      <value>qt_gui</value>
+      <value>no_gui</value>
     </param>
     <param>
       <key>hier_block_src_path</key>
@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>satnogs_apt_demod</value>
+      <value>satnogs_apt_demod_1</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -1183,11 +1183,11 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(552, 196)</value>
+      <value>(704, 188)</value>
     </param>
     <param>
       <key>_rotation</key>
-      <value>0</value>
+      <value>180</value>
     </param>
     <param>
       <key>id</key>
@@ -1788,6 +1788,37 @@ TX sampling rate</value>
     <param>
       <key>value</key>
       <value>satnogs.not_set_rx_if_gain</value>
+    </param>
+  </block>
+  <block>
+    <key>import</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(480, 752)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>import_0</value>
+    </param>
+    <param>
+      <key>import</key>
+      <value>import satnogs</value>
     </param>
   </block>
   <block>
@@ -3590,7 +3621,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>fftsize</key>
@@ -3598,7 +3629,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(432, 732)</value>
+      <value>(352, 612)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -3872,7 +3903,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(736, 628)</value>
+      <value>(736, 596)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -5734,7 +5765,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 604)</value>
+      <value>(336, 476)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -5746,7 +5777,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>filename_png</key>
-      <value>/tmp/.satnogs/data/test-1.png</value>
+      <value>/tmp/.satnogs/data/test-2.png</value>
     </param>
     <param>
       <key>height</key>
