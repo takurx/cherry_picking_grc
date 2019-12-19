@@ -34,7 +34,7 @@ class decode_noaa_apt_from_wav_48k(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png', 2080, 1800, True, False)
+        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/apt_NOAA_18_20191217T112941_wav.png', 2080, 1800, True, False)
         self.rational_resampler_xxx_1 = filter.rational_resampler_fff(
                 interpolation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation),
                 decimation=48000,
@@ -56,7 +56,7 @@ class decode_noaa_apt_from_wav_48k(gr.top_block):
         self.hilbert_fc_0 = filter.hilbert_fc(65, firdes.WIN_HAMMING, 6.76)
         self.fir_filter_xxx_1 = filter.fir_filter_fff(2, ([0.5, 0.5]))
         self.fir_filter_xxx_1.declare_sample_delay(0)
-        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/sebastian/projects/satnogs/testbed/satnogs_164929_2018-06-20T14-47-18.wav', False)
+        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/mocha/apt_NOAA_18_20191217T112941.wav', False)
         self.blocks_complex_to_mag_0 = blocks.complex_to_mag(1)
         self.band_pass_filter_0 = filter.fir_filter_fff(1, firdes.band_pass(
         	6, samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation, 500, 4.2e3, 200, firdes.WIN_HAMMING, 6.76))

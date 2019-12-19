@@ -372,7 +372,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>file</key>
-      <value>/home/sebastian/projects/satnogs/testbed/satnogs_164929_2018-06-20T14-47-18.wav</value>
+      <value>/home/mocha/apt_NOAA_18_20191217T112941.wav</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -945,7 +945,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>filename_png</key>
-      <value>/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png</value>
+      <value>/home/mocha/Desktop/apt_NOAA_18_20191217T112941_wav.png</value>
     </param>
     <param>
       <key>height</key>
