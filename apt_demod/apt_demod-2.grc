@@ -1119,7 +1119,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(456, 940)</value>
+      <value>(1136, 188)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1147,7 +1147,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>value</key>
-      <value>0</value>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -1311,7 +1311,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>value: absolute path</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -1319,7 +1319,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1416, 60)</value>
+      <value>(1336, 52)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1347,7 +1347,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>value</key>
-      <value>/tmp/iq.dat</value>
+      <value>/home/mocha/Desktop/iq.dat</value>
     </param>
   </block>
   <block>
@@ -4855,7 +4855,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>filename</key>

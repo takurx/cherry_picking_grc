@@ -23,7 +23,7 @@ import time
 
 class satnogs_noaa_apt_recoder(gr.top_block):
 
-    def __init__(self, antenna=satnogs.not_set_antenna, bb_gain=satnogs.not_set_rx_bb_gain, decoded_data_file_path='/tmp/.satnogs/data/noaa', dev_args='rtl=00000001', doppler_correction_per_sec=20, enable_iq_dump=0, flip_images=0, if_gain=satnogs.not_set_rx_if_gain, iq_file_path='/tmp/iq.dat', lo_offset=100e3, ogg_file_path='/tmp/test.ogg', ppm=0, rf_gain=satnogs.not_set_rx_rf_gain, rigctl_port=4532, rx_freq=90.4e6, rx_sdr_device='rtlsdr', sync=1, waterfall_file_path='/tmp/waterfall.dat', wav_file_path='/tmp/test.wav'):
+    def __init__(self, antenna=satnogs.not_set_antenna, bb_gain=satnogs.not_set_rx_bb_gain, decoded_data_file_path='/tmp/.satnogs/data/noaa', dev_args='rtl=00000001', doppler_correction_per_sec=20, enable_iq_dump=1, flip_images=0, if_gain=satnogs.not_set_rx_if_gain, iq_file_path='/home/mocha/Desktop/iq.dat', lo_offset=100e3, ogg_file_path='/home/mocha/Desktop/test.ogg', ppm=0, rf_gain=satnogs.not_set_rx_rf_gain, rigctl_port=4532, rx_freq=90.4e6, rx_sdr_device='rtlsdr', sync=1, waterfall_file_path='/home/mocha/Desktop/waterfall.dat', wav_file_path='/home/mocha/Desktop/test.wav'):
         gr.top_block.__init__(self, "NOAA APT Decoder")
 
         ##################################################
@@ -318,7 +318,7 @@ def argument_parser():
         "", "--doppler-correction-per-sec", dest="doppler_correction_per_sec", type="intx", default=20,
         help="Set doppler_correction_per_sec [default=%default]")
     parser.add_option(
-        "", "--enable-iq-dump", dest="enable_iq_dump", type="intx", default=0,
+        "", "--enable-iq-dump", dest="enable_iq_dump", type="intx", default=1,
         help="Set enable_iq_dump [default=%default]")
     parser.add_option(
         "", "--flip-images", dest="flip_images", type="intx", default=0,
@@ -327,13 +327,13 @@ def argument_parser():
         "", "--if-gain", dest="if_gain", type="eng_float", default=eng_notation.num_to_str(satnogs.not_set_rx_if_gain),
         help="Set if_gain [default=%default]")
     parser.add_option(
-        "", "--iq-file-path", dest="iq_file_path", type="string", default='/tmp/iq.dat',
+        "", "--iq-file-path", dest="iq_file_path", type="string", default='/home/mocha/Desktop/iq.dat',
         help="Set iq_file_path [default=%default]")
     parser.add_option(
         "", "--lo-offset", dest="lo_offset", type="eng_float", default=eng_notation.num_to_str(100e3),
         help="Set lo_offset [default=%default]")
     parser.add_option(
-        "", "--ogg-file-path", dest="ogg_file_path", type="string", default='/tmp/test.ogg',
+        "", "--ogg-file-path", dest="ogg_file_path", type="string", default='/home/mocha/Desktop/test.ogg',
         help="Set ogg_file_path [default=%default]")
     parser.add_option(
         "", "--ppm", dest="ppm", type="intx", default=0,
@@ -354,10 +354,10 @@ def argument_parser():
         "", "--sync", dest="sync", type="intx", default=1,
         help="Set sync [default=%default]")
     parser.add_option(
-        "", "--waterfall-file-path", dest="waterfall_file_path", type="string", default='/tmp/waterfall.dat',
+        "", "--waterfall-file-path", dest="waterfall_file_path", type="string", default='/home/mocha/Desktop/waterfall.dat',
         help="Set waterfall_file_path [default=%default]")
     parser.add_option(
-        "", "--wav-file-path", dest="wav_file_path", type="string", default='/tmp/test.wav',
+        "", "--wav-file-path", dest="wav_file_path", type="string", default='/home/mocha/Desktop/test.wav',
         help="Set wav_file_path [default=%default]")
     return parser
 
