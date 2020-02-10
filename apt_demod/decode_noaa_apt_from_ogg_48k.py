@@ -34,8 +34,8 @@ class decode_noaa_apt_from_ogg_48k(gr.top_block):
         ##################################################
         # Blocks
         ##################################################
-        self.satnogs_ogg_source_0 = satnogs.ogg_source('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56.ogg', 1, False)
-        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png', 2080, 1800, True, False)
+        self.satnogs_ogg_source_0 = satnogs.ogg_source('/home/mocha/Desktop/191224_test_dec/test.ogg', 1, False)
+        self.satnogs_noaa_apt_sink_0_0 = satnogs.noaa_apt_sink('/home/mocha/Desktop/191224_test_dec/test.png', 2080, 1800, True, False)
         self.rational_resampler_xxx_1 = filter.rational_resampler_fff(
                 interpolation=int(samp_rate_rx/ ( first_stage_decimation  * int(samp_rate_rx/ first_stage_decimation / initial_bandwidth)) / audio_decimation),
                 decimation=48000,

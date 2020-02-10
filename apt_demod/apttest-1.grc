@@ -945,7 +945,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>filename_png</key>
-      <value>/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56_ogg.png</value>
+      <value>/home/mocha/Desktop/191224_test_dec/test.png</value>
     </param>
     <param>
       <key>height</key>
@@ -984,7 +984,7 @@ TX sampling rate</value>
     </param>
     <param>
       <key>filename</key>
-      <value>/home/mocha/Desktop/satnogs_1389117_2019-12-17T09-31-56.ogg</value>
+      <value>/home/mocha/Desktop/191224_test_dec/test.ogg</value>
     </param>
     <param>
       <key>_coordinate</key>
